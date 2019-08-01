@@ -1,0 +1,32 @@
+{
+  "name": "cucumber-puppeteer",
+  "version": "0.0.1",
+  "description": "Boilerplate for developing an integration testing suite using Cucumber and Puppeteer.",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint \"{,!(node_modules)/**/}*.{js}\"",
+    "test": "NODE_ENV=development cucumber-js features --tags 'not @ignore'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mlampedx/cucumber-puppeteer.git"
+  },
+  "keywords": [
+    "Cucumber",
+    "Puppeteer",
+    "integration",
+    "testing",
+    "JavaScript",
+    "Chrome"
+  ],
+  "author": "Michael Lampe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mlampedx/cucumber-puppeteer/issues"
+  },
+  "homepage": "https://github.com/mlampedx/cucumber-puppeteer#readme",
+  "devDependencies": {
+    "cucumber": "^5.1.0",
+    "puppeteer": "^1.19.0"
+  }
+}
