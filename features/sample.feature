@@ -3,7 +3,7 @@ Feature: Home Page
         Given the <domain> domain and the <path> path
         Given a user on a <device> device
         Given a user in the <locale> locale
-        Then the header should be displayed
+        Then the first header should be displayed
         And the text for the first header should be "<h1>"
 
         Examples:

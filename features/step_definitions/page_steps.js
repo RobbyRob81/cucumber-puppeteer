@@ -94,7 +94,7 @@ Then(/the SRC for the (.+) should be "(.+)"/, async (name, src) =>
   srcEquals(name, src)
 );
 
-Then(/the text for the (.+) should be "(.+)"/, async => (name, text) =>
+Then(/the text for the (.+) should be "(.+)"/, async (name, text) =>
   textEquals(name, text)
 );
 
