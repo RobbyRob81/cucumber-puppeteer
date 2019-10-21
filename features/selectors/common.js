@@ -14,6 +14,10 @@ const CALL_PAGE_SELECTORS = {
     CALLER_ID: ".cog-table-double-row:nth-child(3) > div:nth-child(1)"
 }
 
+const FORM_SELECTORS = {
+    "caller id": "input[id=resident-id]"
+}
+
 
 const PAGES = {
     HOME_PAGE: '/',

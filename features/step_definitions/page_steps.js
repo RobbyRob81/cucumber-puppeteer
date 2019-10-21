@@ -83,11 +83,11 @@ When(/I focus the (.+) and type (.+)/, async (name, query) => {
 When(/I save the HREF of the (.+)/, async name => saveHref(name));
 
 When(/I choose a (.+) to search/, async text => getItemWithText(text));
-When(/I search for a resident/, async => 
+When(/I search for a (.+) id/, async id => 
   compose(
-    typeIn,
+    
     getItemInnerText
-  )
+  )(id)
 );
 // When(/I choose a (.+) inner text from the view/, async text => getItemInnerText(text))
 

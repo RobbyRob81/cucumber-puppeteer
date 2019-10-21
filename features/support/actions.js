@@ -144,8 +144,7 @@ const getItemInnerText = async name => {
   const item = await scope.currentPage.$eval(selector, el => el);
 
   const element = await scope.currentPage.$eval(selector, el => el.textContent);
-
-  console.log('element: ', element)
+  const callerID = element.match(/(\d)\w+/g)[0];
 }
 
 const saveHref = async name => {
