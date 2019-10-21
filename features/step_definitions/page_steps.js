@@ -48,7 +48,7 @@ Given(/the (.+) domain and the (.*) path/, async (domain, path) =>
 );
 
 Given(/a user in the (en-us) locale/, async locale =>
-  compose(setHeaders,getLocaleHeaders)(locale)
+  compose(setHeaders, getLocaleHeaders)(locale)
 );
 
 Given(/the app loads/, async () =>
@@ -83,11 +83,11 @@ When(/I focus the (.+) and type (.+)/, async (name, query) => {
 When(/I save the HREF of the (.+)/, async name => saveHref(name));
 
 When(/I choose a (.+) to search/, async text => getItemWithText(text));
-When(/I search for a (.+) id/, async id => 
-  compose(
-    
-    getItemInnerText
-  )(id)
+When(/I search for a (.+) id/, async id => {
+  const callerId = await getItemInnerText(id);
+  await clickOn('caller id')
+  return typeIn('caller id', callerId)
+} 
 );
 // When(/I choose a (.+) inner text from the view/, async text => getItemInnerText(text))
 
