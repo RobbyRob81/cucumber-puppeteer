@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint \"{,!(node_modules)/**/}*.{js}\"",
-    "test": "NODE_ENV=development cucumber-js features --tags 'not @ignore'"
+    "test": "NODE_ENV=production CLIENT_ENV=jcso cucumber-js features --tags 'not @ignore'",
+    "test:debug": "NODE_ENV=production DEBUG=true CLIENT_ENV=jcso cucumber-js features --tags 'not @ignore'",
+    "debug": "node --inspect=1337 --debug-brk --nolazy node_modules/cucumber/bin/cucumber-js --tags @debug --format json:./reports/report.json"
   },
   "repository": {
     "type": "git",

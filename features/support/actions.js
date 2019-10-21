@@ -3,12 +3,46 @@ const { equal } = require("assert");
 const scope = require("./scope");
 const { getSelector } = require("../selectors");
 const { DEFAULT_TIMEOUT } = require("./constants");
+// const { PAGES } = require('./pages');
+
+const pages = {
+  calls: "/calls"
+}
+
+const delay = duration => new Promise(resolve => setTimeout(resolve, duration));
+const reloadPage = async () => await scope.context.currentPage.reload();
+
+const wait = async timeInSeconds => {
+  console.log('wait:', timeInSeconds)
+  const time = parseInt(timeInSeconds) * 1000;
+  await delay(time);
+};
+
+const shouldBeOnPage = async pageName => {
+    // console.log("window.locatiošn: ", window.location)
+    // console.log("scope.currentPage: ", scope.currentPage)
+    // console.log("pageName: ", pageName)
+    // console.log('pages: ', pages)
+
+    console.log()
+
+  const url = scope.currentPage.host + pages[pageName];
+    console.log("url: ", url)
+  
+  const urlMatched = await scope.currentPage.waitForFunction(
+    `window.location.href === '${url}'`,
+    { mutation: true }
+  );
+
+  console.log("urlMatched", urlMatched)
+};
+
 
 const openPage = async url => {
   scope.currentPage = await scope.context.newPage();
   scope.currentPage.setDefaultTimeout(DEFAULT_TIMEOUT);
-
   await scope.currentPage.goto(url);
+  
   scope.origin = url.slice(0, url.indexOf("?"));
 };
 
@@ -35,6 +69,7 @@ const setHeaders = async headers => {
 
 const clickOn = async name => {
   const selector = getSelector(name);
+  console.log('selector:', selector);
   await scope.currentPage.waitForSelector(selector);
   const elementHandle = await scope.currentPage.$(selector);
   await elementHandle.click();
@@ -61,16 +96,20 @@ const textEquals = async (name, text) => {
 };
 
 const textIncludes = async (name, text) => {
+  console.log('text: ', text)
   const selector = getSelector(name);
   await scope.currentPage.waitForSelector(selector);
-  equal(
-    await scope.currentPage.$eval(
-      selector,
-      (el, txt) => el.innerText.includes(txt),
-      text
-    ),
-    true
-  );
+  const item = await scope.currentPage.$eval(selector);
+
+    console.log("ITEM::::: ", item)
+  // equal(
+  //   await scope.currentPage.$eval(
+  //     selector,
+  //     (el, txt) => el.innerText.includes(txt),
+  //     text
+  //   ),
+  //   true
+  // );
 };
 
 const hrefEquals = async (name, href) => {
@@ -92,6 +131,23 @@ const hrefIncludes = async (name, href) => {
   );
 };
 
+const getItemWithText = async (string) => {
+  const selector = getSelector(string);
+  await scope.currentPage.waitForSelector(selector);
+  const data1 = await (await elements[i].getProperty('value')).jsonValue();
+  console.log("data1: ", data1)
+}
+
+const getItemInnerText = async name => {
+  const selector = getSelector(name);
+  await scope.currentPage.waitForSelector(selector);
+  const item = await scope.currentPage.$eval(selector, el => el);
+
+  const element = await scope.currentPage.$eval(selector, el => el.textContent);
+
+  console.log('element: ', element)
+}
+
 const saveHref = async name => {
   const selector = getSelector(name);
   await scope.currentPage.waitForSelector(selector);
@@ -107,6 +163,7 @@ const srcEquals = async (name, src) => {
 const seeElement = async name => {
   const selector = getSelector(name);
   await scope.currentPage.waitForSelector(selector);
+  const item = await scope.currentPage.$eval(selector, el => el);
   equal(await scope.currentPage.$eval(selector, el => Boolean(el)), true);
 };
 
@@ -145,23 +202,29 @@ const urlEquals = async () => {
 };
 
 module.exports = {
-  openPage,
-  closePage,
-  setDevice,
-  setLocation,
-  setHeaders,
   clickOn,
+  closePage,
+  compareElementsCount,
+  countElements,
+  getItemWithText,
+  delay,
   hoverOn,
-  typeIn,
-  textEquals,
-  textIncludes,
   hrefEquals,
   hrefIncludes,
+  openPage,
+  reloadPage,
   saveHref,
-  srcEquals,
   seeElement,
-  countElements,
-  compareElementsCount,
+  setDevice,
+  setHeaders,
+  setLocation,
+  getItemInnerText,
+  shouldBeOnPage,
+  srcEquals,
   styleEquals,
-  urlEquals
+  textEquals,
+  textIncludes,
+  typeIn,
+  urlEquals,
+  wait
 };

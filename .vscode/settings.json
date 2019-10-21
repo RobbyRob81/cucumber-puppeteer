@@ -1,0 +1,13 @@
+{
+    "cucumberautocomplete.steps": [
+        "features/step_definitions/*.js"
+    ],
+    "cucumberautocomplete.syncfeatures": "features/*.feature",
+    "cucumberautocomplete.strictGherkinCompletion": true,
+    "settings": {},
+    "folders": [
+        {
+            "path": "/Users/{me}/Documents/{project folder}/{project name}"
+        }
+    ]
+}

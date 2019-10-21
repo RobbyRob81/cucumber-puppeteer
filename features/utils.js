@@ -1,6 +1,6 @@
 const compose = (...fns) =>
   fns.reduceRight(
-    (prevFn, nextFn) => (...args) => nextFn(prevFn(...args)),
+    (f1, f2) => (...args) => f2(f1(...args)),
     value => value
   );
 
