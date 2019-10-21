@@ -8,7 +8,8 @@ Feature: Calls Page Functionality
         When I focus the PASSWORD_INPUT and type <password>
         When I click the LOGIN_BUTTON
         Then the CALLER_ID should be displayed
-        Then I choose a CALLER_ID inner text from the view
+        # Then I choose a CALLER_ID inner text from the view
+        When I search for a resident
         Then I wait for 1 seconds
         When I click the NAV_DROP_DOWN
         When I click the LOGOUT_LINK
