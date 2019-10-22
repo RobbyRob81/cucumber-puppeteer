@@ -1,8 +1,8 @@
 const LOGIN_SELECTORS = {
-    USER_NAME_INPUT: "#username",
-    PASSWORD_INPUT: '#password',
-    LOGIN_CONTAINER: ".login-container",
-    LOGIN_BUTTON: ".cog-btn"
+    "username input": "#username",
+    "password input": '#password',
+    "login container": ".login-container",
+    "login button": ".cog-btn"
   };
   
   module.exports = LOGIN_SELECTORS;

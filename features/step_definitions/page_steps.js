@@ -5,6 +5,7 @@ const { getDevice } = require("../support/device");
 const { getLocaleHeaders } = require("../support/locale");
 const { getLocation } = require("../support/location");
 const { getUrl } = require("../support/url");
+const { Maybe } = require("../utils");
 const {
   clickOn,
   closePage,
@@ -17,6 +18,9 @@ const {
   openPage,
   saveHref,
   seeElement,
+  missingElement,
+  getReceiverNumber,
+  getListOfElements,
   setDevice,
   setHeaders,
   setLocation,
@@ -76,35 +80,73 @@ When(/I set the user location to (.+)/, async location =>
 );
 
 When(/I focus the (.+) and type (.+)/, async (name, query) => {
-  await clickOn(name);
-  return typeIn(name, query);
+    await clickOn(name);
+    return typeIn(name, query);
 });
 
 When(/I save the HREF of the (.+)/, async name => saveHref(name));
 
-When(/I choose a (.+) to search/, async text => getItemWithText(text));
-When(/I search for a (.+) id/, async id => {
-  const callerId = await getItemInnerText(id);
-  await clickOn('caller id')
-  return typeIn('caller id', callerId)
+When(/I choose a (.+) to search/, async text => {
+  if(text !== '-') {
+    getItemWithText(text)}
+  }
+);
+
+When(/I search for (\"([^\"]*)\") text, (\"([^\"]*)\") caller id, (\"([^\"]*)\") caller name, and (\"([^\"]*)\") callee number/, async (
+  transcriptText,
+  callerId,
+  callerName,
+  calleeNumber
+  ) => {
+    if(transcriptText.length) {
+      await clickOn('transcript text input');
+      await typeIn('transcript text input', transcriptText)
+    }
+    if(callerId.length) {
+      await clickOn("caller id input")
+      await typeIn('caller id input', await getItemInnerText('caller id'))
+    }
+    if (calleeNumber.length) {
+      await clickOn("callee number input");
+      let lists = await getListOfElements("table td:nth-child(4)");
+      console.log(lists);
+      
+     
+      await typeIn('callee number input', await getReceiverNumber(calleeNumber))
+    }
+    // console.log("transText", transcribeText.length)
+    // console.log("callerId", callerId)
+    // console.log("callerName", callerName)
+    // console.log("calleeName:", calleeName)
+    
+    // await clickOn('caller id input')
+    await clickOn('search button');
+  });
+
+When(/I enter a (.+)/, async id => {
+  console.log("id:------------- ", id)
+  if(id === "caller id") {
+    await clickOn("caller id input")
+    const callerIdText = await getItemInnerText(id);
+    await typeIn('caller id input', callerIdText)
+  }
+  
+    await clickOn('search button');
 } 
 );
-// When(/I choose a (.+) inner text from the view/, async text => getItemInnerText(text))
-
 // Then 
 
 Then(/I choose a (.+) inner text from the view/, async text => getItemInnerText(text))
 Then(/I should be on the (.+) page/, async page => shouldBeOnPage(page));
 
-Then(/the (.+) should be displayed/, async name => seeElement(name));
+Then(/the (.+) should be displayed/, async name => await seeElement(name));
 
-Then(/(\d+) (.+)s* should be displayed/, async (count, name) =>
-  countElements(count, name)
-);
+Then(/(\d+) (.+)s* should be visible/, async (count, name) =>{
+  await countElements(count, name)
+});
 
-Then(
-  /(more|less) than (\d+) (.+)s* should be displayed/,
-  async (operator, count, name) => compareElementCount(name, operator, count)
+Then(/(more|less) than (\d+) (.+)s* should be displayed/,
+  async (operator, count, name) => compareElementsCount(name, operator, count)
 );
 
 Then(/the HREF for the (.+) should be '(.+)'/, async (name, href) =>

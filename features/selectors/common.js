@@ -1,33 +1,50 @@
-const HEADER_SELECTORS = {
-    
-};
 
-const NAVBAR_SELECTORS = {
-    NAV_BAR: ".navbar",
-    NAV_DROP_DOWN: ".navbar-dropdown",
-    LOGOUT_LINK: "a[href^='/logout']"
-};
+const COMMON_UI_SELECTORS = {
+    "logout link": "a[href^='/logout']",
+    "nav bar": ".navbar",
+    "nav drop down": ".navbar-dropdown",
+    "no results text": '.p-3',
+    "pagination element": ".pagination",
+}
 
-const CALL_PAGE_SELECTORS = {
-    CALL_LIST_CONTAINER: ".call-index-container",
-    CALL_LIST: "#cog-call-table-body",
-    CALLER_ID: ".cog-table-double-row:nth-child(3) > div:nth-child(1)"
+const CALL_LIST_SELECTORS = {
+    'calls': '#cog-call-table-body > tr',
+    'call list': "#cog-call-table-body",
+    'call list items': 'tbody > tr'
+}
+
+const CALLER_SELECTORS = {
+    "caller id": ".cog-table-double-row:nth-child(3) > div:nth-child(1)",
+    "caller id input": "input[id=resident-id]",
+}
+
+const CALLEE_SELECTORS = {
+    "caller name input": "input[placeholder*='Name']",
+    "callee number": "table tr td:nth-child(4)",
+    "callee numbers": "table td:nth-child(4)"
 }
 
 const FORM_SELECTORS = {
-    "caller id": "input[id=resident-id]"
+    "clear button": "button[type=clear]",
+    "form date input": '#call-search-date-from-input',
+    "search button": "button[type=submit]",
+    "transcript text input": "input[placeholder='Enter Transcript Text']",
+    "callee number input": "input[placeholder*='Number']"
 }
 
 
 const PAGES = {
-    HOME_PAGE: '/',
-    LOGIN_PAGE: '/login',
-    CALLS_PAGE: '/calls'
+    "calls page": '/calls',
+    "home page": '/',
+    "login page": '/login'
 }
 
 const COMMON_SELECTORS = {
-    ...CALL_PAGE_SELECTORS,
-    ...NAVBAR_SELECTORS,
+    ...CALL_LIST_SELECTORS,
+    ...CALLEE_SELECTORS,
+    ...CALLER_SELECTORS,
+    ...FORM_SELECTORS,
+    ...COMMON_UI_SELECTORS,
     ...PAGES
 };
 

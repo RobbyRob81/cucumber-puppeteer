@@ -14,14 +14,13 @@ BeforeAll(async () => {
       process.env.DEBUG
         ? {
           headless: false,
-          slowMo: 40,
+          slowMo: 20,
           devtools: false,
           defaultViewport: DEFAULT_VIEWPORT
         } : {
           defaultViewport: DEFAULT_VIEWPORT,
-          headless: false,
-          slowMo: 40,
-          devtools: true,
+          headless: true,
+          devtools: false,
           // executablePath: '/usr/bin/chromium-browser',
           args: [
             // '--no-sandbox',
@@ -41,7 +40,34 @@ BeforeAll(async () => {
 
 });
 
-After(async () => {
+// AfterScenario(scenarioResult => {
+  // console.log("scenarioResult: ", scenarioResult.scenario.result)
+  // e currently use scenarioResult.status, scenarioResult.scenario.uri and scenarioResult.scenario.line.
+  // let message = testCase.sourceLocation.uri + ":" + testCase.sourceLocation.line + " "
+  // console.log(message)
+  //  console.log(scenarioResult.status)
+  //  console.log(scenarioResult.scenario.uri)
+  //  console.log(scenarioResult.scenario.line)
+  // if(scenarioResult.scenario.result.status) {
+  //     console.log(scenarioResult.scenario.result.status)
+  //   // console.log(scenarioResult)
+  // }
+
+// })
+
+
+
+
+After(async scenarioResult => {
+//  if(scenario.result){
+//    console.log(scenario)
+//    console.log(JSON.stringify(scenario))
+//  }
+  // console.log(scenarioResult.status)
+  //  console.log(scenarioResult.scenario.uri)
+  //  console.log(scenarioResult.scenario.line)
+  // console.log(scenarioResult.pickle)
+
   if (scope.browser && scope.currentPage) {
     await scope.currentPage.close();
 

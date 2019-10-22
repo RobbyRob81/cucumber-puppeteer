@@ -13,28 +13,17 @@ const delay = duration => new Promise(resolve => setTimeout(resolve, duration));
 const reloadPage = async () => await scope.context.currentPage.reload();
 
 const wait = async timeInSeconds => {
-  console.log('wait:', timeInSeconds)
   const time = parseInt(timeInSeconds) * 1000;
   await delay(time);
 };
 
-const shouldBeOnPage = async pageName => {
-    // console.log("window.locatiošn: ", window.location)
-    // console.log("scope.currentPage: ", scope.currentPage)
-    // console.log("pageName: ", pageName)
-    // console.log('pages: ', pages)
-
-    console.log()
-
-  const url = scope.currentPage.host + pages[pageName];
-    console.log("url: ", url)
+const shouldBeOnPage = async pageName =>  {
+  const url = scope.currentPage.host + pages[pageName]
   
   const urlMatched = await scope.currentPage.waitForFunction(
     `window.location.href === '${url}'`,
     { mutation: true }
-  );
-
-  console.log("urlMatched", urlMatched)
+  )
 };
 
 
@@ -68,9 +57,10 @@ const setHeaders = async headers => {
 };
 
 const clickOn = async name => {
+  console.log("name: ", name)
   const selector = getSelector(name);
-  console.log('selector:', selector);
   await scope.currentPage.waitForSelector(selector);
+  console.log("selector: ", selector)
   const elementHandle = await scope.currentPage.$(selector);
   await elementHandle.click();
 };
@@ -96,12 +86,11 @@ const textEquals = async (name, text) => {
 };
 
 const textIncludes = async (name, text) => {
-  console.log('text: ', text)
   const selector = getSelector(name);
   await scope.currentPage.waitForSelector(selector);
   const item = await scope.currentPage.$eval(selector);
 
-    console.log("ITEM::::: ", item)
+    
   // equal(
   //   await scope.currentPage.$eval(
   //     selector,
@@ -131,11 +120,36 @@ const hrefIncludes = async (name, href) => {
   );
 };
 
+const findMatchingText = async string => {
+  var linkTexts = await page.$$eval(".plan-features a",
+  elements=> elements.map(item=>item.textContent))
+// prints a array of text
+await console.log(linkTexts)
+}
+
 const getItemWithText = async (string) => {
   const selector = getSelector(string);
   await scope.currentPage.waitForSelector(selector);
   const data1 = await (await elements[i].getProperty('value')).jsonValue();
-  console.log("data1: ", data1)
+  
+}
+
+const getReceiverNumber = async name => {
+  const selector = getSelector(name);
+  await scope.currentPage.waitForSelector(selector);
+  const item = await scope.currentPage.$eval(selector, el => el);
+
+  const element = await scope.currentPage.$eval(selector, el => el.textContent);
+  console.log('element: -----', element)
+  return element.replace(/\W+/g,"");
+}
+
+const getListOfElements = async name => {
+  let lists = await scope.currentPage.$$(name)
+  for (const item of lists) {
+    const label = await scope.currentPage.evaluate(el => el.innerText, item);
+    console.log(label)
+  }
 }
 
 const getItemInnerText = async name => {
@@ -144,7 +158,9 @@ const getItemInnerText = async name => {
   const item = await scope.currentPage.$eval(selector, el => el);
 
   const element = await scope.currentPage.$eval(selector, el => el.textContent);
+  console.log('element: -----', element)
   const callerID = element.match(/(\d)\w+/g)[0];
+  return callerID;
 }
 
 const saveHref = async name => {
@@ -163,26 +179,35 @@ const seeElement = async name => {
   const selector = getSelector(name);
   await scope.currentPage.waitForSelector(selector);
   const item = await scope.currentPage.$eval(selector, el => el);
+  console.log('item:', item)
   equal(await scope.currentPage.$eval(selector, el => Boolean(el)), true);
 };
 
-const countElements = async (name, count) => {
+const missingElement = async name => {
   const selector = getSelector(name);
   await scope.currentPage.waitForSelector(selector);
-  const elemLen = await scope.currentPage.$eval(selector, el => el.length);
-  equal(elemLen, count);
+  
+  
+  // equal(await scope.currentPage.$eval(selector, el => !!Boolean(el)), false);
+}
+
+const countElements = async (count, name) => {
+  console.log("countElements:::: name", name)
+  console.log("countElements:::: count", count)
+  const selector = getSelector(name);
+  await scope.currentPage.waitForSelector(selector);
+  // const elemLen = await scope.currentPage.$eval(selector, el => el.length);
+  equal((await scope.currentPage.$$(selector)).length, count);
 };
 
 const compareElementsCount = async (name, operator, count) => {
   const selector = getSelector(name);
   await scope.currentPage.waitForSelector(selector);
-  const elemLen = await scope.currentPage.$eval(selector, el => el.length);
-  equal(elemLen, count);
 
   if (operator === "more") {
-    equal(elemLen > count, true);
+    equal((await scope.currentPage.$$(selector)).length > count, true);
   } else {
-    equal(elemLen < count, true);
+    equal((await scope.currentPage.$$(selector)).length < count, true);
   }
 };
 
@@ -214,6 +239,9 @@ module.exports = {
   reloadPage,
   saveHref,
   seeElement,
+  getListOfElements,
+  missingElement,
+  getReceiverNumber,
   setDevice,
   setHeaders,
   setLocation,
