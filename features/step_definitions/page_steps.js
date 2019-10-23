@@ -16,6 +16,7 @@ const {
     getItems,
     getItemsInnerText,
     getListOfNumbers,
+    getNodeInnerText,
     getReceiverNumber,
     hoverOn,
     hrefEquals,
@@ -72,13 +73,7 @@ When(/I search for (\"([^\"]*)\") text, (\"([^\"]*)\") caller id, (\"([^\"]*)\")
     }
     if (calleeNumber.length) {
       await clickOn("callee number input");
-      console.log(getListOfNumbers("table td:nth-child(4)"))
-      // const numbers = flowArgs(getItems, getItemsInnerText)("table td:nth-child(4)")
-      // console.log(await numbers)
-      // let lists = await getItemInnerText("table td:nth-child(4)");
-      // console.log(lists);
-      
-     
+      console.log(getNodeInnerText("table td:nth-child(4)"))
       await typeIn('callee number input', await getReceiverNumber(calleeNumber))
     }
     // console.log("transText", transcribeText.length)
