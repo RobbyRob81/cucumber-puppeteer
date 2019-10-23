@@ -70,6 +70,7 @@ When(/I search for (\"([^\"]*)\") text, (\"([^\"]*)\") caller id, (\"([^\"]*)\")
     if(callerId.length) {
       await clickOn("caller id input")
       await typeIn('caller id input', await getItemInnerText('caller id'))
+      console.log(getNodeInnerText('caller id'))
     }
     if (calleeNumber.length) {
       await clickOn("callee number input");
