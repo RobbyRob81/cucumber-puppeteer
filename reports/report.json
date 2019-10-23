@@ -26,11 +26,11 @@
             "line": 20,
             "name": "the app loads",
             "match": {
-              "location": "features/step_definitions/page_steps.js:58"
+              "location": "features/step_definitions/page_steps.js:45"
             },
             "result": {
               "status": "passed",
-              "duration": 8506000000
+              "duration": 3015000000
             }
           },
           {
@@ -39,7 +39,7 @@
             "line": 21,
             "name": "a user on a desktop device",
             "match": {
-              "location": "features/step_definitions/page_steps.js:46"
+              "location": "features/step_definitions/page_steps.js:42"
             },
             "result": {
               "status": "passed",
@@ -52,11 +52,11 @@
             "line": 22,
             "name": "I focus the username input and type cogadmin",
             "match": {
-              "location": "features/step_definitions/page_steps.js:82"
+              "location": "features/step_definitions/page_steps.js:54"
             },
             "result": {
               "status": "passed",
-              "duration": 1120000000
+              "duration": 1127000000
             }
           },
           {
@@ -65,11 +65,11 @@
             "line": 23,
             "name": "I focus the password input and type C0Gility",
             "match": {
-              "location": "features/step_definitions/page_steps.js:82"
+              "location": "features/step_definitions/page_steps.js:54"
             },
             "result": {
               "status": "passed",
-              "duration": 822000000
+              "duration": 811000000
             }
           },
           {
@@ -78,11 +78,11 @@
             "line": 24,
             "name": "I click the login button",
             "match": {
-              "location": "features/step_definitions/page_steps.js:71"
+              "location": "features/step_definitions/page_steps.js:48"
             },
             "result": {
               "status": "passed",
-              "duration": 225000000
+              "duration": 218000000
             }
           },
           {
@@ -91,179 +91,11 @@
             "line": 25,
             "name": "the call list items should be displayed",
             "match": {
-              "location": "features/step_definitions/page_steps.js:142"
+              "location": "features/step_definitions/page_steps.js:101"
             },
             "result": {
               "status": "passed",
-              "duration": 1423000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 26,
-            "name": "I search for \"\" text, \"\" caller id, \"\" caller name, and \"\" callee number",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:95"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 236000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 27,
-            "name": "more than 24 call list items should be displayed",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:148"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 206000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 28,
-            "name": "1 pagination element should be visible",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:144"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 192000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 29,
-            "name": "I click the nav drop down",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:71"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 222000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 30,
-            "name": "I click the logout link",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:71"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 277000000
-            }
-          },
-          {
-            "keyword": "After",
-            "hidden": true,
-            "match": {
-              "location": "features/hooks.js:61"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 38000000
-            }
-          }
-        ]
-      },
-      {
-        "id": "calls-page-functionality;calls-search-with-results",
-        "keyword": "Scenario",
-        "line": 35,
-        "name": "Calls Search with results",
-        "tags": [
-          {
-            "name": "@callSearch",
-            "line": 18
-          }
-        ],
-        "type": "scenario",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 20,
-            "name": "the app loads",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:58"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 5243000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 21,
-            "name": "a user on a desktop device",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:46"
-            },
-            "result": {
-              "status": "passed"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 22,
-            "name": "I focus the username input and type cogadmin",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:82"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1116000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 23,
-            "name": "I focus the password input and type C0Gility",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:82"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 810000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 24,
-            "name": "I click the login button",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:71"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 233000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 25,
-            "name": "the call list items should be displayed",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:142"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1368000000
+              "duration": 1333000000
             }
           },
           {
@@ -272,37 +104,11 @@
             "line": 26,
             "name": "I search for \"\" text, \"\" caller id, \"\" caller name, and \"callee number\" callee number",
             "match": {
-              "location": "features/step_definitions/page_steps.js:95"
+              "location": "features/step_definitions/page_steps.js:59"
             },
             "result": {
               "status": "passed",
-              "duration": 2192000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 27,
-            "name": "more than 24 call list items should be displayed",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:148"
-            },
-            "result": {
-              "status": "failed",
-              "duration": 363000000,
-              "error_message": "AssertionError [ERR_ASSERTION]: false == true\n    + expected - actual\n\n    -false\n    +true\n\n    at compareElementsCount (/Users/rrosario/Documents/Github/cucumber-puppeteer/features/support/actions.js:208:5)"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 28,
-            "name": "1 pagination element should be visible",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:144"
-            },
-            "result": {
-              "status": "skipped"
+              "duration": 1060000000
             }
           },
           {
@@ -311,10 +117,11 @@
             "line": 29,
             "name": "I click the nav drop down",
             "match": {
-              "location": "features/step_definitions/page_steps.js:71"
+              "location": "features/step_definitions/page_steps.js:48"
             },
             "result": {
-              "status": "skipped"
+              "status": "passed",
+              "duration": 271000000
             }
           },
           {
@@ -323,10 +130,11 @@
             "line": 30,
             "name": "I click the logout link",
             "match": {
-              "location": "features/step_definitions/page_steps.js:71"
+              "location": "features/step_definitions/page_steps.js:48"
             },
             "result": {
-              "status": "skipped"
+              "status": "passed",
+              "duration": 269000000
             }
           },
           {
@@ -337,780 +145,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 26000000
-            }
-          }
-        ]
-      },
-      {
-        "id": "calls-page-functionality;calls-search-with-results",
-        "keyword": "Scenario",
-        "line": 36,
-        "name": "Calls Search with results",
-        "tags": [
-          {
-            "name": "@callSearch",
-            "line": 18
-          }
-        ],
-        "type": "scenario",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 20,
-            "name": "the app loads",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:58"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 21,
-            "name": "a user on a desktop device",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:46"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 22,
-            "name": "I focus the username input and type cogadmin",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:82"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 23,
-            "name": "I focus the password input and type C0Gility",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:82"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 24,
-            "name": "I click the login button",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:71"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 25,
-            "name": "the call list items should be displayed",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:142"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 26,
-            "name": "I search for \"the\" text, \"\" caller id, \"\" caller name, and \"\" callee number",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:95"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 27,
-            "name": "more than 24 call list items should be displayed",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:148"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 28,
-            "name": "1 pagination element should be visible",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:144"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 29,
-            "name": "I click the nav drop down",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:71"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 30,
-            "name": "I click the logout link",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:71"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "keyword": "After",
-            "hidden": true,
-            "match": {
-              "location": "features/hooks.js:61"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          }
-        ]
-      },
-      {
-        "id": "calls-page-functionality;calls-search-with-results",
-        "keyword": "Scenario",
-        "line": 37,
-        "name": "Calls Search with results",
-        "tags": [
-          {
-            "name": "@callSearch",
-            "line": 18
-          }
-        ],
-        "type": "scenario",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 20,
-            "name": "the app loads",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:58"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 21,
-            "name": "a user on a desktop device",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:46"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 22,
-            "name": "I focus the username input and type cogadmin",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:82"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 23,
-            "name": "I focus the password input and type C0Gility",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:82"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 24,
-            "name": "I click the login button",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:71"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 25,
-            "name": "the call list items should be displayed",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:142"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 26,
-            "name": "I search for \"\" text, \"caller id\" caller id, \"\" caller name, and \"callee number\" callee number",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:95"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 27,
-            "name": "more than 1 call list items should be displayed",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:148"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 28,
-            "name": "1 pagination element should be visible",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:144"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 29,
-            "name": "I click the nav drop down",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:71"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 30,
-            "name": "I click the logout link",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:71"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "keyword": "After",
-            "hidden": true,
-            "match": {
-              "location": "features/hooks.js:61"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          }
-        ]
-      },
-      {
-        "id": "calls-page-functionality;calls-search-with-results",
-        "keyword": "Scenario",
-        "line": 38,
-        "name": "Calls Search with results",
-        "tags": [
-          {
-            "name": "@callSearch",
-            "line": 18
-          }
-        ],
-        "type": "scenario",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 20,
-            "name": "the app loads",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:58"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 21,
-            "name": "a user on a desktop device",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:46"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 22,
-            "name": "I focus the username input and type cogadmin",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:82"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 23,
-            "name": "I focus the password input and type C0Gility",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:82"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 24,
-            "name": "I click the login button",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:71"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 25,
-            "name": "the call list items should be displayed",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:142"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 26,
-            "name": "I search for \"the\" text, \"caller id\" caller id, \"\" caller name, and \"\" callee number",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:95"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 27,
-            "name": "more than 1 call list items should be displayed",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:148"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 28,
-            "name": "1 pagination element should be visible",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:144"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 29,
-            "name": "I click the nav drop down",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:71"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 30,
-            "name": "I click the logout link",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:71"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "keyword": "After",
-            "hidden": true,
-            "match": {
-              "location": "features/hooks.js:61"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          }
-        ]
-      },
-      {
-        "id": "calls-page-functionality;calls-search-with-results",
-        "keyword": "Scenario",
-        "line": 39,
-        "name": "Calls Search with results",
-        "tags": [
-          {
-            "name": "@callSearch",
-            "line": 18
-          }
-        ],
-        "type": "scenario",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 20,
-            "name": "the app loads",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:58"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 21,
-            "name": "a user on a desktop device",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:46"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 22,
-            "name": "I focus the username input and type cogadmin",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:82"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 23,
-            "name": "I focus the password input and type C0Gility",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:82"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 24,
-            "name": "I click the login button",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:71"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 25,
-            "name": "the call list items should be displayed",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:142"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 26,
-            "name": "I search for \"the\" text, \"caller id\" caller id, \"\" caller name, and \"\" callee number",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:95"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 27,
-            "name": "more than 1 call list items should be displayed",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:148"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 28,
-            "name": "1 pagination element should be visible",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:144"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 29,
-            "name": "I click the nav drop down",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:71"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 30,
-            "name": "I click the logout link",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:71"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "keyword": "After",
-            "hidden": true,
-            "match": {
-              "location": "features/hooks.js:61"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          }
-        ]
-      },
-      {
-        "id": "calls-page-functionality;calls-search-without-results",
-        "keyword": "Scenario",
-        "line": 58,
-        "name": "Calls Search without results",
-        "tags": [
-          {
-            "name": "@callSearch",
-            "line": 42
-          }
-        ],
-        "type": "scenario",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 44,
-            "name": "the app loads",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:58"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 45,
-            "name": "a user on a desktop device",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:46"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 46,
-            "name": "I focus the username input and type cogadmin",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:82"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 47,
-            "name": "I focus the password input and type C0Gility",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:82"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 48,
-            "name": "I click the login button",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:71"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 49,
-            "name": "the call list items should be displayed",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:142"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 50,
-            "name": "I search for \"expialidocious\" text, \"\" caller id, \"\" caller name, and \"\" callee number",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:95"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 51,
-            "name": "the no results text should be displayed",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:142"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 52,
-            "name": "I click the nav drop down",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:71"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 53,
-            "name": "I click the logout link",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:71"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "keyword": "After",
-            "hidden": true,
-            "match": {
-              "location": "features/hooks.js:61"
-            },
-            "result": {
-              "status": "skipped"
+              "duration": 23000000
             }
           }
         ]

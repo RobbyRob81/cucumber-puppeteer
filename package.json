@@ -31,5 +31,10 @@
   "devDependencies": {
     "cucumber": "^5.1.0",
     "puppeteer": "^1.19.0"
+  },
+  "dependencies": {
+    "data.task": "^3.1.2",
+    "immutable": "^4.0.0-rc.12",
+    "immutable-ext": "^1.1.5"
   }
 }

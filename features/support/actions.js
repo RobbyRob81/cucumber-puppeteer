@@ -1,13 +1,14 @@
 const { equal } = require("assert");
+const { List, Box, Task} = require("immutable-ext");
 
-const scope = require("./scope");
-const { getSelector } = require("../selectors");
 const { DEFAULT_TIMEOUT } = require("./constants");
-// const { PAGES } = require('./pages');
+const { find, flow, flowArgs } = require("../utils");
+const { getSelector } = require("../selectors");
+const scope = require("./scope");
 
-const pages = {
-  calls: "/calls"
-}
+const pages = { calls: "/calls"};
+
+
 
 const delay = duration => new Promise(resolve => setTimeout(resolve, duration));
 const reloadPage = async () => await scope.context.currentPage.reload();
@@ -57,10 +58,10 @@ const setHeaders = async headers => {
 };
 
 const clickOn = async name => {
-  console.log("name: ", name)
+  
   const selector = getSelector(name);
   await scope.currentPage.waitForSelector(selector);
-  console.log("selector: ", selector)
+  
   const elementHandle = await scope.currentPage.$(selector);
   await elementHandle.click();
 };
@@ -91,14 +92,14 @@ const textIncludes = async (name, text) => {
   const item = await scope.currentPage.$eval(selector);
 
     
-  // equal(
-  //   await scope.currentPage.$eval(
-  //     selector,
-  //     (el, txt) => el.innerText.includes(txt),
-  //     text
-  //   ),
-  //   true
-  // );
+  equal(
+    await scope.currentPage.$eval(
+      selector,
+      (el, txt) => el.innerText.includes(txt),
+      text
+    ),
+    true
+  );
 };
 
 const hrefEquals = async (name, href) => {
@@ -122,9 +123,9 @@ const hrefIncludes = async (name, href) => {
 
 const findMatchingText = async string => {
   var linkTexts = await page.$$eval(".plan-features a",
-  elements=> elements.map(item=>item.textContent))
+  elements => elements.map(item=>item.textContent))
 // prints a array of text
-await console.log(linkTexts)
+  await linkTexts
 }
 
 const getItemWithText = async (string) => {
@@ -140,16 +141,34 @@ const getReceiverNumber = async name => {
   const item = await scope.currentPage.$eval(selector, el => el);
 
   const element = await scope.currentPage.$eval(selector, el => el.textContent);
-  console.log('element: -----', element)
+  // console.log('element: -----', element)
   return element.replace(/\W+/g,"");
 }
 
-const getListOfElements = async name => {
-  let lists = await scope.currentPage.$$(name)
-  for (const item of lists) {
-    const label = await scope.currentPage.evaluate(el => el.innerText, item);
-    console.log(label)
-  }
+const getItems = name => scope.currentPage.$$(name)
+const getInnerText = x => scope.currentPage.evaluate(el => el.innerText, x)
+const print = x => x.map(flowArgs(getInnerText, console.log));
+
+const getNodeInnerText = flowArgs(getItems, print);
+
+
+
+
+const getListOfNumbers = async name => {
+  // const lists = await getNodeInnerText(name);
+  
+  (await getNodeInnerText(name));
+  
+  
+        
+      //  console.log(await getNodeInnerText(name))
+      //  console.log( await Dom.find(name).chain(console.log))
+      // console.log(await List.of(x =>  x.map(getInnerText))
+      //                         .ap(List(await getItems(name)))
+      // )
+                              
+
+  
 }
 
 const getItemInnerText = async name => {
@@ -158,7 +177,7 @@ const getItemInnerText = async name => {
   const item = await scope.currentPage.$eval(selector, el => el);
 
   const element = await scope.currentPage.$eval(selector, el => el.textContent);
-  console.log('element: -----', element)
+  // console.log('element: -----', element)
   const callerID = element.match(/(\d)\w+/g)[0];
   return callerID;
 }
@@ -179,7 +198,6 @@ const seeElement = async name => {
   const selector = getSelector(name);
   await scope.currentPage.waitForSelector(selector);
   const item = await scope.currentPage.$eval(selector, el => el);
-  console.log('item:', item)
   equal(await scope.currentPage.$eval(selector, el => Boolean(el)), true);
 };
 
@@ -192,11 +210,8 @@ const missingElement = async name => {
 }
 
 const countElements = async (count, name) => {
-  console.log("countElements:::: name", name)
-  console.log("countElements:::: count", count)
   const selector = getSelector(name);
   await scope.currentPage.waitForSelector(selector);
-  // const elemLen = await scope.currentPage.$eval(selector, el => el.length);
   equal((await scope.currentPage.$$(selector)).length, count);
 };
 
@@ -239,7 +254,7 @@ module.exports = {
   reloadPage,
   saveHref,
   seeElement,
-  getListOfElements,
+  getListOfNumbers,
   missingElement,
   getReceiverNumber,
   setDevice,

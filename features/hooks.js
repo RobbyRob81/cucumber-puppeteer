@@ -13,7 +13,7 @@ BeforeAll(async () => {
     scope.browser = await puppeteer.launch(
       process.env.DEBUG
         ? {
-          headless: false,
+          headless: true,
           slowMo: 20,
           devtools: false,
           defaultViewport: DEFAULT_VIEWPORT
