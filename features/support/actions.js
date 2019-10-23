@@ -147,9 +147,9 @@ const getReceiverNumber = async name => {
 
 const getItems = name => scope.currentPage.$$(name)
 const getInnerText = x => scope.currentPage.evaluate(el => el.innerText, x)
-const print = x => x.map(flowArgs(getInnerText, console.log));
+const getText = x => x.map(flowArgs(getInnerText, console.log));
 
-const getNodeInnerText = flowArgs(getItems, print);
+const getNodeInnerText = flowArgs(getItems, getText);
 
 
 
