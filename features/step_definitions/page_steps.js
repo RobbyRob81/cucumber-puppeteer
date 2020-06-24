@@ -15,14 +15,13 @@ const {
     getItemInnerText,
     getItems,
     getItemsInnerText,
-    getListOfNumbers,
-    getNodeInnerText,
     getReceiverNumber,
     hoverOn,
     hrefEquals,
     hrefIncludes,
     missingElement,
     openPage,
+    querySteps,
     saveHref,
     seeElement,
     setDevice,
@@ -37,7 +36,7 @@ const {
     urlEquals,
     wait
 } = require("../support/actions");
-
+const dateReg = (/^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/im);
 // Given 
 Given(/a user in the (en-us) locale/, async locale => compose(setHeaders, getLocaleHeaders)(locale));
 Given(/a user on a (desktop|tablet|mobile) device/, async device => compose(setDevice, getDevice)(device));
@@ -52,43 +51,56 @@ When(/I hover the (.+)/, async name => hoverOn(name));
 When(/I set the user location to (.+)/, async location => compose(setLocation, getLocation)(location));
 When(/I save the HREF of the (.+)/, async name => saveHref(name));
 
+Given(/I login/, async => compose(getUserName, getPassword, login))
+
 When(/I focus the (.+) and type (.+)/, async (name, query) => {
     await clickOn(name);
     return typeIn(name, query);
 });
 
-When(/I search for (\"([^\"]*)\") text, (\"([^\"]*)\") caller id, (\"([^\"]*)\") caller name, and (\"([^\"]*)\") callee number/, async (
+When(/I search for (\"([^\"]*)\") transcript, (\"([^\"]*)\") caller id, (\"([^\"]*)\") caller name, (\"([^\"]*)\") receiver number, and (\"([^\"]*)\") from date/,  async (
   transcriptText,
   callerId,
   callerName,
-  calleeNumber
+  receiverNumber,
+  fromDate
   ) => {
-    if(transcriptText.length) {
+    if (transcriptText.length) {
       await clickOn('transcript text input');
       await typeIn('transcript text input', transcriptText)
     }
-    if(callerId.length) {
+    if (callerId.length) {
       await clickOn("caller id input")
-      await typeIn('caller id input', await getItemInnerText('caller id'))
-      console.log(getNodeInnerText('caller id'))
+      const id = await getItemInnerText('caller id');
+      await typeIn('caller id input', await id.match(/(\d)\w+/g))
     }
-    if (calleeNumber.length) {
-      await clickOn("callee number input");
-      console.log(getNodeInnerText("table td:nth-child(4)"))
-      await typeIn('callee number input', await getReceiverNumber(calleeNumber))
+    if (receiverNumber.length) {
+      await clickOn("receiver number input");
+      const number = await getItemInnerText(receiverNumber);
+      await typeIn('receiver number input', await number.replace(/\W+/g,""));
+    } 
+    if (callerName.length) {
+      await clickOn("caller name input");
+      const callerName = await getItemInnerText('caller name');
+      await typeIn('caller name input', callerName);
     }
-    // console.log("transText", transcribeText.length)
-    // console.log("callerId", callerId)
-    // console.log("callerName", callerName)
-    // console.log("calleeName:", calleeName)
+    // if (fromDate.length) {
+    //   // const [month, day, year] = fromDate.split("/");
+    //   await clickOn('date range from input');
+    //   await clickOn('month and year label');
+    //   await clickOn('year label');
+    //   let year = await _getItemWithText('2014')
+    //   await clickOn(year)
+    //   await clickOn('date range from input label');
+    // }
     
-    // await clickOn('caller id input')
     await clickOn('search button');
   });
 
 // Then 
 Then(/(\d+) (.+)s* should be visible/, async (count, name) => await countElements(count, name));
 Then(/(more|less) than (\d+) (.+)s* should be displayed/,async (operator, count, name) => compareElementsCount(name, operator, count));
+// Then('I should be on the {string} page', shouldBeOnPage);
 
 Then('I wait for {int} seconds', { timeout: 60 * 1000 }, wait);
 Then(/I choose a (.+) inner text from the view/, async text => getItemInnerText(text))
@@ -104,3 +116,5 @@ Then(/the SRC for the (.+) should be '(.+)'/, async (name, src) => srcEquals(nam
 Then(/the text for the (.+) should be '(.+)'/, async (name, text) => textEquals(name, text));
 Then(/the text for the (.+) should include (.+)/, async (name, text) =>textIncludes(name, text));
 Then(/the URL should equal the saved HREF/, async () => urlEquals());
+
+Then(/the caller name (\"([^\"]*)\") should match/, async name => console.log())

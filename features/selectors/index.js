@@ -1,5 +1,5 @@
-const LOGIN_SELECTORS = require("./loginSelectors");
 const COMMON_SELECTORS = require("./common");
+const LOGIN_SELECTORS = require("./loginSelectors");
 
 const SELECTORS = {
   ...COMMON_SELECTORS,

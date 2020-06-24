@@ -8,11 +8,8 @@ const asyncCompose = (f1,f2) => async x => f1( await f2(x));
 
 // A function that takes an arbitrary number of arguments
 const asyncCompseArgs = (...args) => args.reduce(asyncCompose, x => x);
-
-const flow = (func1, func2) => async x => func2(await func1(x));
-const flowArgs = (...args) => args.reduce(flow, x => x);
-
-
+const flow = async(func1, func2) => async x => await func2(await func1(x));
+const flowArgs = (...args) => args.reduce(flow, x => x);1
 
 const Maybe = value => ({
 	value,

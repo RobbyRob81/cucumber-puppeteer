@@ -6,8 +6,10 @@
   "scripts": {
     "lint": "eslint \"{,!(node_modules)/**/}*.{js}\"",
     "cucumber": "./node_modules/.bin/cucumber-js",
-    "test": "NODE_ENV=production CLIENT_ENV=jcso ./node_modules/.bin/cucumber-js  --format json:./reports/report.json --fail-fast",
-    "test:debug": "NODE_ENV=production DEBUG=true CLIENT_ENV=jcso cucumber-js features --format json:./reports/report.json --tags 'not @ignore' --fail-fast",
+    "test:debug": "NODE_ENV=production DEBUG=true CLIENT_ENV=okdoc-nfcc cucumber-js features --format json:./reports/report.json --tags 'not @ignore' --fail-fast",
+    "test:dev": "NODE_ENV=development CLIENT_ENV=ccso ./node_modules/.bin/cucumber-js  --format json:./reports/report.json --fail-fast",
+    "test:prod": "NODE_ENV=production CLIENT_ENV=ccso ./node_modules/.bin/cucumber-js  --format json:./reports/report.json --fail-fast",
+    "test:staging": "NODE_ENV=staging CLIENT_ENV=ccso ./node_modules/.bin/cucumber-js  --format json:./reports/report.json --fail-fast",
     "debug": "node --inspect=1337 --debug-brk --nolazy node_modules/cucumber/bin/cucumber-js --tags @debug --format json:./reports/report.json"
   },
   "repository": {

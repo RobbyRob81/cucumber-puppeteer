@@ -7,8 +7,3 @@
 module.exports = {
   
 };
-
-
-// scope.host = 'https://verus-staging-gtl.threatdeterrence.com/login';
-// scope.driver = puppeteer;
-// scope.context = {};

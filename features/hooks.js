@@ -13,10 +13,11 @@ BeforeAll(async () => {
     scope.browser = await puppeteer.launch(
       process.env.DEBUG
         ? {
-          headless: true,
+          headless: false,
           slowMo: 20,
           devtools: false,
-          defaultViewport: DEFAULT_VIEWPORT
+          defaultViewport: DEFAULT_VIEWPORT,
+          args: ['--incognito']
         } : {
           defaultViewport: DEFAULT_VIEWPORT,
           headless: true,
@@ -27,7 +28,8 @@ BeforeAll(async () => {
             "--disable-setuid-sandbox",
             "--disable-dev-shm-usage",
             '--disable-web-security',
-            '--disable-gpu'
+            '--disable-gpu',
+            '--incognito'
           ]
         }  
     );
@@ -40,34 +42,7 @@ BeforeAll(async () => {
 
 });
 
-// AfterScenario(scenarioResult => {
-  // console.log("scenarioResult: ", scenarioResult.scenario.result)
-  // e currently use scenarioResult.status, scenarioResult.scenario.uri and scenarioResult.scenario.line.
-  // let message = testCase.sourceLocation.uri + ":" + testCase.sourceLocation.line + " "
-  // console.log(message)
-  //  console.log(scenarioResult.status)
-  //  console.log(scenarioResult.scenario.uri)
-  //  console.log(scenarioResult.scenario.line)
-  // if(scenarioResult.scenario.result.status) {
-  //     console.log(scenarioResult.scenario.result.status)
-  //   // console.log(scenarioResult)
-  // }
-
-// })
-
-
-
-
 After(async scenarioResult => {
-//  if(scenario.result){
-//    console.log(scenario)
-//    console.log(JSON.stringify(scenario))
-//  }
-  // console.log(scenarioResult.status)
-  //  console.log(scenarioResult.scenario.uri)
-  //  console.log(scenarioResult.scenario.line)
-  // console.log(scenarioResult.pickle)
-
   if (scope.browser && scope.currentPage) {
     await scope.currentPage.close();
 
@@ -77,6 +52,9 @@ After(async scenarioResult => {
   }
 });
 
+// AfterAll(async () => {
+//   if (scope.browser) await scope.browser.close();
+// });
 AfterAll(async () => {
   if (scope.context) await scope.context.close();
   if (scope.browser) await scope.browser.close();
