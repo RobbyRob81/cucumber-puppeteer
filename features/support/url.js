@@ -5,26 +5,18 @@ const {
   SUBDOMAIN_ENV
 } = process.env;
 
-const DOMAIN = 'threatdeterrence';
-// const getSUBDOMAIN = (env, client ) => env === "production" && client === "ccso" || client === "lpso" ? "verus-" : "speech-";
-// const SUBDOMAIN = getSUBDOMAIN(DOMAIN_ENV, CLIENT_ENV);
-// console.log("Subdomain: ", SUBDOMAIN)
-
+const DOMAIN = 'aspiration';
 
 const getUrl = (path = "") => {
   const URLS_BY_DOMAIN_AND_ENV = {
-      development: "http://localhost:4200",
-      production: `https://speech-${CLIENT_ENV}.${DOMAIN}.com`,
-      // production: `https://verus-${CLIENT_ENV}.threatdeterrence.com`, //lpso
-      staging: `https://verus-staging-${CLIENT_ENV}.${DOMAIN}.com`,
-      test: "http://localhost:4200"
+      alpha: `https://alpha.${DOMAIN}.com`,
+      dev: "http://localhost:3000",
+      prod: `https://${DOMAIN}.com`,
+      test: "http://localhost:3000"
   };
 
-  // const domainUrl =
-  //   URLS_BY_DOMAIN_AND_ENV[domain][NODE_ENV] ||
-  //   URLS_BY_DOMAIN_AND_ENV.test.development;
-
   const domainUrl = URLS_BY_DOMAIN_AND_ENV[NODE_ENV]
+  console.log('domain: ', domainUrl)
   return path ? `${domainUrl}${path}` : domainUrl;
 };
 

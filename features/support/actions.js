@@ -31,6 +31,7 @@ const shouldBeOnPage = async pageName => {
 };
 
 const openPage = async url => {
+  console.log('url: ', url)
   scope.currentPage = await scope.context.newPage();
   scope.currentPage.setDefaultTimeout(DEFAULT_TIMEOUT);
   await scope.currentPage.goto(url);
@@ -172,7 +173,6 @@ const seeElement = async name => {
 const missingElement = async name => {
   const selector = getSelector(name);
   await scope.currentPage.waitForSelector(selector);
-  // equal(await scope.currentPage.$eval(selector, el => !!Boolean(el)), false);
 }
 
 const countElements = async (count, name) => {
@@ -208,10 +208,6 @@ const urlEquals = async () => {
 
 const formatInputNumber = async str => await str.replace(/\W+/g,"");
 
-// const findAllItems = async name => {
-//   const selector = getSelector(name);
-//   await page.$$eval(selector, el);
-// }
 
 module.exports = {
   clickOn,

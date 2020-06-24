@@ -6,11 +6,11 @@
   "scripts": {
     "lint": "eslint \"{,!(node_modules)/**/}*.{js}\"",
     "cucumber": "./node_modules/.bin/cucumber-js",
-    "test:debug": "NODE_ENV=production DEBUG=true CLIENT_ENV=okdoc-nfcc cucumber-js features --format json:./reports/report.json --tags 'not @ignore' --fail-fast",
-    "test:dev": "NODE_ENV=development CLIENT_ENV=ccso ./node_modules/.bin/cucumber-js  --format json:./reports/report.json --fail-fast",
-    "test:prod": "NODE_ENV=production CLIENT_ENV=ccso ./node_modules/.bin/cucumber-js  --format json:./reports/report.json --fail-fast",
-    "test:staging": "NODE_ENV=staging CLIENT_ENV=ccso ./node_modules/.bin/cucumber-js  --format json:./reports/report.json --fail-fast",
-    "debug": "node --inspect=1337 --debug-brk --nolazy node_modules/cucumber/bin/cucumber-js --tags @debug --format json:./reports/report.json"
+    "debug": "node --inspect=1337 --debug-brk --nolazy node_modules/cucumber/bin/cucumber-js --tags @debug --format json:./reports/report.json",
+    "test:alpha": "NODE_ENV=alpha ./node_modules/.bin/cucumber-js  --format json:./reports/report.json --fail-fast",
+    "test:debug": "NODE_ENV=alpha DEBUG=true CLIENT_ENV=okdoc-nfcc cucumber-js features --format json:./reports/report.json --tags 'not @ignore' --fail-fast",
+    "test:dev": "NODE_ENV=dev ./node_modules/.bin/cucumber-js  --format json:./reports/report.json --fail-fast",
+    "test:prod": "NODE_ENV=prod ./node_modules/.bin/cucumber-js  --format json:./reports/report.json --fail-fast"
   },
   "repository": {
     "type": "git",
@@ -32,11 +32,12 @@
   "homepage": "https://github.com/mlampedx/cucumber-puppeteer#readme",
   "devDependencies": {
     "cucumber": "^5.1.0",
-    "puppeteer": "^1.19.0"
+    "puppeteer": "^4.0.1"
   },
   "dependencies": {
     "data.task": "^3.1.2",
     "immutable": "^4.0.0-rc.12",
-    "immutable-ext": "^1.1.5"
+    "immutable-ext": "^1.1.5",
+    "or": "^0.2.0"
   }
 }

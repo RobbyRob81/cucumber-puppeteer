@@ -1,25 +1,26 @@
 [
   {
     "keyword": "Feature",
-    "name": "Calls",
-    "line": 1,
-    "id": "calls",
-    "tags": [],
-    "uri": "features/callDetails.feature",
+    "name": "Login Functionality",
+    "line": 3,
+    "id": "login-functionality",
+    "tags": [
+      {
+        "name": "@login",
+        "line": 2
+      }
+    ],
+    "uri": "features/userLogin.feature",
     "elements": [
       {
-        "id": "calls;renders-search-results",
+        "id": "login-functionality;verify-login-and-logout",
         "keyword": "Scenario",
-        "line": 21,
-        "name": "Renders search results",
+        "line": 11,
+        "name": "Verify login and Logout",
         "tags": [
           {
-            "name": "@callDetails",
-            "line": 3
-          },
-          {
-            "name": "@GTL",
-            "line": 4
+            "name": "@login",
+            "line": 2
           }
         ],
         "type": "scenario",
@@ -34,12 +35,12 @@
             },
             "result": {
               "status": "passed",
-              "duration": 8296000000
+              "duration": 3001000000
             }
           },
           {
             "arguments": [],
-            "keyword": "Given ",
+            "keyword": "And ",
             "line": 7,
             "name": "a user on a desktop device",
             "match": {
@@ -50,71 +51,6 @@
             }
           },
           {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 9,
-            "name": "I focus the username input and type cogadmin",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:56"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1261000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 10,
-            "name": "I focus the password input and type C0G!lity",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:56"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 852000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 11,
-            "name": "I click the login button",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:48"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 230000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 12,
-            "name": "I should be on the calls page",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:107"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 821000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 14,
-            "name": "I click the first call",
-            "match": {
-              "location": "features/step_definitions/page_steps.js:48"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 668000000
-            }
-          },
-          {
             "keyword": "After",
             "hidden": true,
             "match": {
@@ -122,7 +58,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 27000000
+              "duration": 4000000
             }
           }
         ]
